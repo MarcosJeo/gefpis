@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'materialize-sass'
 gem 'simple_form'
-
+gem 'devise', '~> 2.0.0.rc'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use mysql as the database for Active Record

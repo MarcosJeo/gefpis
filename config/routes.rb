@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
+  #devise_for :members
   root to: "pages#index"
   get "/about", to: "pages#about", as: :about
+  get "/login", to: "pages#login", as: :login
   resources :members
   resources :tutees
   resources :worksheets

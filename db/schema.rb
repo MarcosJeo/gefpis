@@ -26,16 +26,6 @@ ActiveRecord::Schema.define(version: 20160504164314) do
 
   add_index "evaluation_t", ["id_number"], name: "evaluation_fk", using: :btree
 
-  create_table "evaluations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "lessons", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "member_t", primary_key: "id_number", force: :cascade do |t|
     t.string  "password",       limit: 15, null: false
     t.string  "first_name",     limit: 15, null: false
@@ -49,11 +39,6 @@ ActiveRecord::Schema.define(version: 20160504164314) do
     t.date    "birthday",                  null: false
     t.string  "year_course",    limit: 12, null: false
     t.string  "scholarship",    limit: 15
-  end
-
-  create_table "members", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "module_t", primary_key: "file_number", force: :cascade do |t|
@@ -79,11 +64,6 @@ ActiveRecord::Schema.define(version: 20160504164314) do
   add_index "tpr_t", ["id_number"], name: "tpr_fk2", using: :btree
   add_index "tpr_t", ["tutee_id"], name: "tpr_fk3", using: :btree
 
-  create_table "tprs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tutee_t", primary_key: "tutee_id", force: :cascade do |t|
     t.string  "first_name",        limit: 15, null: false
     t.string  "last_name",         limit: 15, null: false
@@ -105,11 +85,6 @@ ActiveRecord::Schema.define(version: 20160504164314) do
     t.integer "group_no",          limit: 4,  null: false
   end
 
-  create_table "tutees", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "worksheet_t", primary_key: "worksheet_id", force: :cascade do |t|
     t.integer "file_number",   limit: 4,  null: false
     t.integer "id_number",     limit: 4,  null: false
@@ -122,11 +97,6 @@ ActiveRecord::Schema.define(version: 20160504164314) do
   add_index "worksheet_t", ["file_number"], name: "worksheet_fk1", using: :btree
   add_index "worksheet_t", ["id_number"], name: "worksheet_fk2", using: :btree
   add_index "worksheet_t", ["tutee_id"], name: "worksheet_fk3", using: :btree
-
-  create_table "worksheets", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   add_foreign_key "evaluation_t", "member_t", column: "id_number", primary_key: "id_number", name: "evaluation_fk"
   add_foreign_key "tpr_t", "member_t", column: "id_number", primary_key: "id_number", name: "tpr_fk2"

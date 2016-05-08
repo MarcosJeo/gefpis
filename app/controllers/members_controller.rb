@@ -1,12 +1,10 @@
 class MembersController < ApplicationController
   def index
   	@members = Member.all
-  	render "members_page/index"
+  	render "members/index"
   end
 
   def new
-    @members = Member.new
-    render "member_new_profile"
   end
 
   def show

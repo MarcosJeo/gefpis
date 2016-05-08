@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
   def index
   	@lessons = Lesson.all
-  	render "lessons/lessons_all"
+  	render "lessons/index"
   end
 
   def new
